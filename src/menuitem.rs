@@ -109,6 +109,10 @@ where
     &self.children
   }
 
+  pub fn is_parent(&self) -> bool {
+    self.children.is_empty()
+  }
+
   /// Return a reference to the application defined menu item context.
   pub fn appctx(&self) -> &C {
     &self.appctx

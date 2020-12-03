@@ -1,6 +1,7 @@
 pub mod flatiter;
 pub mod menu;
 pub mod menuitem;
+pub mod recfiltiter;
 pub mod reciter;
 
 pub mod iter {

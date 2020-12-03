@@ -3,7 +3,7 @@ use std::collections::{HashMap, VecDeque};
 use std::rc::Rc;
 
 use crate::menuitem::{self, MenuItem};
-use crate::{flatiter, reciter};
+use crate::{flatiter, recfiltiter, reciter};
 
 pub struct Builder<C>
 where
@@ -188,6 +188,13 @@ where
 
   pub fn iter_hier(&self) -> reciter::MenuIter<C> {
     reciter::MenuIter::new(self)
+  }
+
+  pub fn filtiter_hier<F>(&self, p: F) -> recfiltiter::MenuIter<C, F>
+  where
+    F: Fn(&MenuItem<C>) -> bool
+  {
+    recfiltiter::MenuIter::new(self, p)
   }
 }
 
